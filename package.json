@@ -1,0 +1,37 @@
+{
+  "name": "@wolf.jet/core",
+  "version": "1.0.0",
+  "description": "A core api for Wolf.live",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wolf-jet/core.git"
+  },
+  "keywords": [
+    "WOLF",
+    "WOLF.LIVE",
+    "Palringo"
+  ],
+  "author": "Fawazorg <foazorg@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wolf-jet/core/issues"
+  },
+  "homepage": "https://github.com/wolf-jet/core#readme",
+  "dependencies": {
+    "socket.io-client": "^2.4.0",
+    "tiny-async-pool": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-node": "^2.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2"
+  }
+}
