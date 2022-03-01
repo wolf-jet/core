@@ -58,7 +58,7 @@ module.exports = class Events {
     if (this.#Client.Subscribers.cache.has(id)) {
       this.#Client.Subscribers.cache.delete(id);
       // TODO: add no cache
-      const user = await this.#Client.Subscribers.GetSubscriber(id, false, true);
+      const user = await this.#Client.Subscribers.GetSubscriber(id, true, true);
       this.#Client.Subscribers.cache.set(id, user);
     }
 
