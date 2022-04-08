@@ -21,7 +21,7 @@ module.exports = class GroupManager extends CacheManger {
    * @param {import("../Client")} client
    */
   constructor(client) {
-    super();
+    super(client.Options.cache.find((name) => name.group));
     this.#Client = client;
   }
 
@@ -176,6 +176,7 @@ module.exports = class GroupManager extends CacheManger {
   /**
    * Get group members
    * @param {number} id
+   * @param {Boolean} subscribe
    * @returns
    */
   GetGroupMembers = async (id, subscribe = false) => {
@@ -189,6 +190,49 @@ module.exports = class GroupManager extends CacheManger {
       return members;
     } catch (e) {
       return null;
+    }
+  };
+
+  /**
+   * Update Group Members
+   * @param {Number} groupId
+   * @param {Number} subscriberId
+   * @param {Number} capabilities
+   */
+  UpdateGroupMembers = async (groupId, subscriberId, capabilities) => {
+    try {
+      await Requests.GroupMemberUpdate(this.#Client.V3, groupId, subscriberId, capabilities);
+      return true;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  /**
+   * Join A Group
+   * @param {String|Number} nameOrId
+   * @param {String} password
+   * @param {Number} referredBy
+   */
+  Join = async (nameOrId, password = null, referredBy = null) => {
+    try {
+      await Requests.GroupMemberAdd(this.#Client.V3, nameOrId, password, referredBy);
+      return true;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  /**
+   * Leave A Group
+   * @param {Number} groupId
+   */
+  Leave = async (groupId) => {
+    try {
+      await Requests.GroupMemberDelete(this.#Client.V3, groupId);
+      return true;
+    } catch (error) {
+      return error;
     }
   };
 };

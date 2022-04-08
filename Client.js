@@ -36,6 +36,11 @@ module.exports = class Client {
   Emitter;
 
   /**
+   * @type {Object}
+   */
+  Options;
+
+  /**
    * @type {Events}
    */
   On;
@@ -90,11 +95,12 @@ module.exports = class Client {
    */
   Subscribers;
 
-  constructor(token = null) {
+  constructor(options = {}, token = null) {
     this.Token = token ?? this.#GenerateToken();
     this.V3 = new IO(this);
     this.Emitter = new EventEmitter();
     this.Emitter.setMaxListeners(Number.MAX_SAFE_INTEGER);
+    this.Options = options;
 
     this.Groups = new GroupManager(this);
     this.Messages = new MessageManager(this);

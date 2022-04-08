@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/wolf-jet/core#readme",
   "dependencies": {
+    "lru-cache": "^7.4.1",
     "socket.io-client": "^2.4.0",
     "tiny-async-pool": "^1.2.0"
   },

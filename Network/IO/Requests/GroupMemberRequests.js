@@ -36,15 +36,15 @@ module.exports = class GroupMemberRequests {
   /**
    *
    * @param {import("../IO")} io the socket.io client to send this request through
-   * @param {number} subscriberId the id of the subscriber
+   * @param {number} groupId the id of the group
    */
-  static GroupMemberDelete = async (io, subscriberId) => await io.Emit("group member delete", { subscriberId });
+  static GroupMemberDelete = async (io, groupId) => await io.Emit("group member delete", { groupId });
 
   /**
    *
    * @param {import("../IO")} io the socket.io client to send this request through
    * @param {number} id the id of the group
-   * @param {boolea} subscribe subscribe to updates to the group member list
+   * @param {Boolean} subscribe subscribe to updates to the group member list
    */
   static GroupMemberList = async (io, id, subscribe = false) =>
     await io.Emit("group member list", {

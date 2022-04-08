@@ -1,11 +1,11 @@
-const Storage = require("../Utilities/Storage");
+const LRU = require("lru-cache");
 
 module.exports = class CacheManger {
   #Cache;
 
   constructor(options = {}) {
-    const { maxSize = Infinity, Limit = null } = options;
-    this.#Cache = new Storage({ maxSize, Limit });
+    const { max = 100, maxSize = 500 } = options;
+    this.#Cache = new LRU({ max, maxSize, ...options });
   }
 
   add(id, data) {
