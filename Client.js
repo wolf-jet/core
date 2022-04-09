@@ -138,7 +138,6 @@ module.exports = class Client {
 
       // Fetch the Current Subsciber and subscribe to updates to self
       subscriber = await this.Subscribers.GetSubscriber(subscriber.id, true, true);
-
       this.CurrentUser = subscriber;
 
       this.On.Security.LoginSuccess(subscriber);

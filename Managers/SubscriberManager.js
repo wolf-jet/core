@@ -14,7 +14,7 @@ module.exports = class SubscriberManager extends CacheManager {
    * @param {import("../Client")} client
    */
   constructor(client) {
-    super(client.Options.cache.find((name) => name.subscriber));
+    super(client.Options.cache?.find((name) => name.subscriber));
     this.#Client = client;
   }
 

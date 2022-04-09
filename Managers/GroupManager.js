@@ -21,7 +21,7 @@ module.exports = class GroupManager extends CacheManger {
    * @param {import("../Client")} client
    */
   constructor(client) {
-    super(client.Options.cache.find((name) => name.group));
+    super(client.Options.cache?.find((name) => name.group));
     this.#Client = client;
   }
 

@@ -14,7 +14,7 @@ module.exports = class AchievementManager extends CacheManger {
    * @param {import("../Client")} client
    */
   constructor(client) {
-    super(client.Options.cache.find((name) => name.achievement));
+    super(client.Options.cache?.find((name) => name.achievement));
     this.#Client = client;
   }
 

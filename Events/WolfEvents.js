@@ -41,7 +41,6 @@ module.exports = class Events {
 
         // Fetch the Current Subsciber and subscribe to updates to self
         const subscriber = await this.#Client.Subscribers.GetSubscriber(loggedInUser.id, true, true);
-
         this.#Client.CurrentUser = subscriber;
 
         this.#Client.On.Security.LoginSuccess(subscriber);
